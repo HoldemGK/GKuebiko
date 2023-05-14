@@ -54,7 +54,7 @@ class Bot(commands.Bot):
         print(content)
 
         response = gpt3_completion(Bot.conversation)
-        print(creds.BOT_NAME , response)
+        print(creds.BOT_NAME,": " , response)
 
         if(Bot.conversation.count({ 'role': 'assistant', 'content': response }) == 0):
             Bot.conversation.append({ 'role': 'assistant', 'content': response })
@@ -121,7 +121,7 @@ class Bot(commands.Bot):
             elif count % 7 == 0:
                 with open("output.txt", "a", encoding="utf-8") as out:
                     out.write("\n")
-        time.sleep(2)
+        time.sleep(10)
         open('output.txt', 'w').close()
 
 
